@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:nft_app_ui/tabs/recent_tab.dart';
+import 'package:nft_app_ui/tabs/top_tab.dart';
+import 'package:nft_app_ui/tabs/trending_tab.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -8,46 +11,74 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<Tab> tabOptions = const [
+    Tab(text: "Recent"),
+    Tab(text: "Trending"),
+    Tab(text: "Top"),
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey[400],
-      body: SafeArea(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(24.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("Explore", style: TextStyle(fontSize: 38)),
-                      Text("Collections", style: TextStyle(fontSize: 38)),
-                    ],
-                  ),
-                  Container(
-                    padding: EdgeInsets.all(4),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.white54),
-                      color: Colors.white24,
-                      borderRadius: BorderRadius.circular(16),
+    return DefaultTabController(
+      length: tabOptions.length,
+      child: Scaffold(
+        backgroundColor: Colors.grey[400],
+        body: SafeArea(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(24.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Explore",
+                          style: TextStyle(
+                            fontSize: 38,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        Text(
+                          "Collections",
+                          style: TextStyle(
+                            fontSize: 38,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ],
                     ),
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.search,
-                        color: Colors.grey[800],
-                        size: 40,
+                    Container(
+                      padding: EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.white54),
+                        color: Colors.white24,
+                        borderRadius: BorderRadius.circular(16),
                       ),
-                      onPressed: () {},
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.search,
+                          color: Colors.grey[800],
+                          size: 40,
+                        ),
+                        onPressed: () {},
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            Row(),
-          ],
+              TabBar(tabs: tabOptions, indicatorColor: Colors.lightBlueAccent),
+              Expanded(
+                child: TabBarView(
+                  children: [
+                  RecentTab(),TrendingTab(),TopTab()
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
