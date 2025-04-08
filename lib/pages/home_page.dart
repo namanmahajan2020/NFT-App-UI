@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nft_app_ui/components/my_bottomBar.dart';
 import 'package:nft_app_ui/tabs/recent_tab.dart';
 import 'package:nft_app_ui/tabs/top_tab.dart';
 import 'package:nft_app_ui/tabs/trending_tab.dart';
@@ -16,6 +17,12 @@ class _HomePageState extends State<HomePage> {
     Tab(text: "Trending"),
     Tab(text: "Top"),
   ];
+  int _currentindex = 0;
+  void _handleBottomIndexChanger(int? index) {
+    setState(() {
+      _currentindex = index!;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +30,10 @@ class _HomePageState extends State<HomePage> {
       length: tabOptions.length,
       child: Scaffold(
         backgroundColor: Colors.grey[400],
+        bottomNavigationBar: MyBottombar(
+          index: _currentindex,
+          onTap: _handleBottomIndexChanger,
+        ),
         body: SafeArea(
           child: Column(
             children: [
@@ -72,9 +83,7 @@ class _HomePageState extends State<HomePage> {
               TabBar(tabs: tabOptions, indicatorColor: Colors.lightBlueAccent),
               Expanded(
                 child: TabBarView(
-                  children: [
-                  RecentTab(),TrendingTab(),TopTab()
-                  ],
+                  children: [RecentTab(), TrendingTab(), TopTab()],
                 ),
               ),
             ],
