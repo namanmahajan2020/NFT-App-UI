@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nft_app_ui/components/nft_card.dart';
+import 'package:nftui/components/nft_card.dart';
 
 class TopTab extends StatelessWidget {
   const TopTab({super.key});

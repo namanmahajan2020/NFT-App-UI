@@ -1,9 +1,14 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 
-class MyBottombar extends StatelessWidget {
+class MyBottomBar extends StatelessWidget {
   final int index;
   final Function(int?) onTap;
-  const MyBottombar({super.key, required this.index, required this.onTap});
+  MyBottomBar({
+    Key? key,
+    required this.index,
+    required this.onTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,17 +25,11 @@ class MyBottombar extends StatelessWidget {
       items: const [
         BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: 'Home'),
         BottomNavigationBarItem(
-          icon: Icon(Icons.notification_add),
-          label: 'Notifications',
-        ),
+            icon: Icon(Icons.notifications_outlined), label: 'Home'),
         BottomNavigationBarItem(
-          icon: Icon(Icons.favorite_outline_rounded),
-          label: 'Favorites',
-        ),
+            icon: Icon(Icons.favorite_outline), label: 'Home'),
         BottomNavigationBarItem(
-          icon: Icon(Icons.person_2_outlined),
-          label: 'Profile',
-        ),
+            icon: Icon(Icons.person_outline), label: 'Home'),
       ],
     );
   }

@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:nft_app_ui/pages/home_page.dart';
+import 'package:nftui/pages/home_page.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomePage(),
+      theme: ThemeData(primarySwatch: Colors.lime),
     );
   }
 }

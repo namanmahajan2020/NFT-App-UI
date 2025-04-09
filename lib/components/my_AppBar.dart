@@ -1,38 +1,45 @@
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 
-class MyAppbar extends StatelessWidget {
-  const MyAppbar({super.key});
+class MyAppBar extends StatelessWidget {
+  final String title;
+  VoidCallback onSearchTap;
+
+  MyAppBar({
+    Key? key,
+    required this.onSearchTap,
+    required this.title,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(24.0),
+      padding: const EdgeInsets.all(25.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Explore",
-                style: TextStyle(fontSize: 40),
+          Expanded(
+            child: Text(
+              title,
+              style: GoogleFonts.bebasNeue(
+                fontSize: 52,
               ),
-              Text(
-                "Collections",
-                style: TextStyle(fontSize: 40),
-              ),
-            ],
-          ),
-          Container(
-            padding: EdgeInsets.all(4),
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.white),
-              color: Colors.grey.shade200,
-              borderRadius: BorderRadius.circular(12),
             ),
-            child: IconButton(
-              icon: Icon(Icons.search, size: 36),
-              onPressed: () {},
+          ),
+          GestureDetector(
+            onTap: onSearchTap,
+            child: Container(
+              padding: EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.white),
+                borderRadius: BorderRadius.circular(16),
+                color: Colors.grey[200],
+              ),
+              child: Icon(
+                Icons.search,
+                size: 36,
+                color: Colors.grey[800],
+              ),
             ),
           ),
         ],
