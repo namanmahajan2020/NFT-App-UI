@@ -12,7 +12,7 @@ class MyBottombar extends StatelessWidget {
       onTap: onTap,
       selectedItemColor: Colors.white,
       unselectedItemColor: Colors.grey[300],
-      backgroundColor: Colors.lightBlueAccent,
+      backgroundColor: Colors.transparent,
       showSelectedLabels: false,
       showUnselectedLabels: false,
       elevation: 0,

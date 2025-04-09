@@ -6,6 +6,11 @@ class NftCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(imagePath, fit: BoxFit.fill);
+    return Padding(
+      padding: const EdgeInsets.all(25.0),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(12),
+        child: Image.asset(imagePath, fit: BoxFit.cover)),
+    );
   }
 }

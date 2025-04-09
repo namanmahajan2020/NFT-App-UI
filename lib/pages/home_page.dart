@@ -4,6 +4,7 @@ import 'package:nft_app_ui/components/my_bottomBar.dart';
 import 'package:nft_app_ui/tabs/recent_tab.dart';
 import 'package:nft_app_ui/tabs/top_tab.dart';
 import 'package:nft_app_ui/tabs/trending_tab.dart';
+import 'package:nft_app_ui/theme/glass_box.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -31,9 +32,12 @@ class _HomePageState extends State<HomePage> {
       length: tabOptions.length,
       child: Scaffold(
         backgroundColor: Colors.grey[300],
-        bottomNavigationBar: MyBottombar(
-          index: _currentindex,
-          onTap: _handleBottomIndexChanger,
+        extendBody: true,
+        bottomNavigationBar: GlassBox(
+          child: MyBottombar(
+            index: _currentindex,
+            onTap: _handleBottomIndexChanger,
+          ),
         ),
         body: SafeArea(
           child: Column(

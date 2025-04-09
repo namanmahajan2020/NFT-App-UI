@@ -15,23 +15,23 @@ class MyAppbar extends StatelessWidget {
             children: [
               Text(
                 "Explore",
-                style: TextStyle(fontSize: 38, fontWeight: FontWeight.w400),
+                style: TextStyle(fontSize: 40),
               ),
               Text(
                 "Collections",
-                style: TextStyle(fontSize: 38, fontWeight: FontWeight.w400),
+                style: TextStyle(fontSize: 40),
               ),
             ],
           ),
           Container(
             padding: EdgeInsets.all(4),
             decoration: BoxDecoration(
-              border: Border.all(color: Colors.white38, width: 1.5),
+              border: Border.all(color: Colors.white),
               color: Colors.grey.shade200,
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(12),
             ),
             child: IconButton(
-              icon: Icon(Icons.search, color: Colors.grey[800], size: 40),
+              icon: Icon(Icons.search, size: 36),
               onPressed: () {},
             ),
           ),

@@ -6,12 +6,6 @@ class RecentTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(25.0),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(11),
-        child: NftCard(imagePath: 'lib/images/apiens_1.jpeg'),
-      ),
-    );
+    return NftCard(imagePath: 'lib/images/apiens_1.jpeg');
   }
 }
